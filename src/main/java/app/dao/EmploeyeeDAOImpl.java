@@ -1,5 +1,6 @@
 package app.dao;
 
+
 import app.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -18,11 +19,10 @@ class EmployeeDAOImpl implements EmployeeDAO {
 
 
     @Override
-
     public List<Employee> getAllEmployees() {
 
         Session session =  sessionFactory.getCurrentSession();
-        List<Employee> allEmp =  session.createQuery("from Employee", Employee.class).getResultList();
+        List<Employee> allEmp =  session.createQuery(" select e from Employee e", Employee.class).getResultList();
 
         return  allEmp;
     }
